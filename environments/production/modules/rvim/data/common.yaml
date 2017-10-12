@@ -1,0 +1,11 @@
+---
+rvim::set_nocompatible: true
+rvim::set_syntax: true
+rvim::rcfile: '/home/georgi/tmp/vim/.vimrc'
+rvim::vimfolders:
+    - '.vim'
+    - '.vim/bundle'
+    - '.vim/colors'
+    - '.vim/indent'
+    - '.vim/ftpugin'
+    - '.vim/Ultisnips'
