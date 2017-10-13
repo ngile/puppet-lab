@@ -1,7 +1,10 @@
 ---
 rvim::set_nocompatible: true
-rvim::set_syntax: true
-rvim::rcfile: '/home/georgi/tmp/vim/.vimrc'
+rvim::syntax: true
+rvim::userpaths:
+    - '/home/georgi/tmp/vim/georgi'
+    - '/home/georgi/tmp/vim/rosko'
+    - '/home/georgi/tmp/vim/rambo'
 rvim::vimfolders:
     - '.vim'
     - '.vim/bundle'

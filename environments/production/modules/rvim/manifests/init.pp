@@ -44,20 +44,18 @@
 #
 class rvim (
     $set_nocompatible,
-    $set_syntax,
-    $rcfile,
+    $syntax,
     $vimfolders,
+    $userpaths,
 ) {
 
-  $vimfolders.each | String $folder |{
-    file { "/home/georgi/tmp/vim/$folder":
-      ensure => 'directory',
+  $userpaths.each | String $path| {
+    rvim::users { $path:
+      userhome    => $path,
+      directories => $vimfolders,
     }
   }
-  file { $rcfile:
-    ensure  => 'present',
-    content => template('rvim/vimrc.erb'),
-  }
+
 }
 
 
