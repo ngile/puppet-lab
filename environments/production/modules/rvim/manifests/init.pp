@@ -43,16 +43,15 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class rvim (
-    $set_nocompatible,
-    $syntax,
-    $vimfolders,
-    $userpaths,
+  Boolean $set_nocompatible,
+  Boolean $syntax,
+  Array $default_vim_folders,
+  Array $userpaths,
 ) {
-
   $userpaths.each | String $path| {
-    rvim::users { $path:
+    rvim::config { $path:
       userhome    => $path,
-      directories => $vimfolders,
+      vimfolders => $default_vim_folders,
     }
   }
 

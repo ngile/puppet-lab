@@ -1,12 +1,12 @@
-define rvim::users (
+define rvim::config (
   String $userhome,
-  Array $directories,
+  Array $vimfolders,
 ) {
   file { $userhome:
     ensure => 'directory',
   }
 
-  $directories.each | String $folder | {
+  $vimfolders.each | String $folder | {
     file { "$userhome/$folder":
       ensure  => 'directory',
       require => File[$userhome],
