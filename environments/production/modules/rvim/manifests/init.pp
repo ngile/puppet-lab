@@ -47,14 +47,27 @@ class rvim (
   Boolean $syntax,
   Array $default_vim_folders,
   Array $userpaths,
+  Array $default_plugins,
 ) {
   $userpaths.each | String $path| {
-    rvim::config { $path:
+    rvim::directories { $path:
       userhome    => $path,
-      vimfolders => $default_vim_folders,
+      vimfolders  => $default_vim_folders,
+    }
+
+    vcsrepo { "$path/.vim/bundle":
+      ensure   => present,
+      provider => git,
+      source   => 'https://github.com/VundleVim/Vundle.vim',
+      require  => Rvim::Directories[$path],
+    }
+
+    rvim::plugins { $path:
+      userhome    => $path,
+      vim_plugins => $default_plugins,
+      require     => Rvim::Directories[$path],
     }
   }
-
 }
 
 

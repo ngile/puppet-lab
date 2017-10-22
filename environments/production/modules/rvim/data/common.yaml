@@ -8,11 +8,12 @@ rvim::userpaths:
 rvim::default_vim_folders:
     - '.vim'
     - '.vim/bundle'
+    - '.vim/configs'
     - '.vim/colors'
     - '.vim/indent'
     - '.vim/ftpugin'
     - '.vim/Ultisnips'
-rvim::plugins:
+rvim::default_plugins:
     - 'VundleVim/Vundle.vim'
     - 'tpope/vim-fugitive'
     - 'davidhalter/jedi-vim'
@@ -29,3 +30,6 @@ rvim::plugins:
     - 'kien/ctrlp.vim'
     - 'iamcco/markdown-preview.vim'
     - 'puppetlabs/puppet-syntax-vim'
+
+# vim: ai ts=2 sts=2 et sw=2 ft=puppet
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=puppet

@@ -1,0 +1,11 @@
+" Plugins part
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+<% @vim_plugins.each do |plugin| -%>
+Plugin '<%= plugin %>'
+<% end -%>
+call vundle#end()           
+filetype plugin indent on    

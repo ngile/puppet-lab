@@ -1,4 +1,4 @@
-define rvim::config (
+define rvim::directories (
   String $userhome,
   Array $vimfolders,
 ) {
@@ -13,11 +13,6 @@ define rvim::config (
     }
   }
 
-  file { "$userhome/.vimrc":
-    ensure  => 'file',
-    content => template('rvim/vimrc.erb'),
-    require => File[$userhome],
-  }
 }
 
 
